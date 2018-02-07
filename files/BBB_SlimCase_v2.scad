@@ -30,14 +30,14 @@
 // 2 - Base for STL Export
 // 3 - Lid for STL Export
 
-   Render_Options = 2;
+   Render_Options = 3;
 
 // LID OPTIONS
 // Set this to select various lid Options
 // 0 = Solid
 // 1 = Pin Header Cut Outs
 
-   Lid_Options = 1;
+   Lid_Options = 0;
 
 // DEV STATION OPTIONS
 // Set this to add bottom rails for attachment to the BBB Dev Station Sled accessory
@@ -92,11 +92,15 @@ module Base()
 		//Ethernet Jack
 		translate([BB_Eth_X-Cmp_Gap-Case_Thickness+0.5, BB_Eth_Y-Cmp_Gap, Case_PCB_Z+BB_Z]) cube([BB_Eth_L+Cmp_Gap2+Case_Thickness+0.5, BB_Eth_W+Cmp_Gap2, BB_Eth_Z+Cmp_Gap]);
 		//Power Jack
-		translate([BB_PJack_X-Cmp_Gap-Case_Thickness+0.5, BB_PJack_Y-Cmp_Gap, Case_PCB_Z+BB_Z]) cube([BB_PJack_L+Cmp_Gap2+Case_Thickness+0.5, BB_PJack_W+Cmp_Gap2, BB_PJack_Z+Cmp_Gap]);
-		//USB Device Port
-		translate([BB_USBD_X-Cmp_Gap-Case_Thickness+0.5, BB_USBD_Y-Cmp_Gap, 0.75]) cube([BB_USBD_L+Cmp_Gap2+Case_Thickness+0.5, BB_USBD_W+Cmp_Gap2, BB_USBD_Z+Cmp_Gap]);
-		//USB Host
-		translate([BB_USBH_X-Cmp_Gap, BB_USBH_Y-Cmp_Gap, Case_PCB_Z+BB_Z]) cube([BB_USBH_L+Cmp_Gap2+Case_Thickness+0.5, BB_USBH_W+Cmp_Gap2, CutOut_Z]);//BB_USBH_Z+Cmp_Gap]);
+		/*translate([BB_PJack_X-Cmp_Gap-Case_Thickness+0.5, BB_PJack_Y-Cmp_Gap, Case_PCB_Z+BB_Z]) cube([BB_PJack_L+Cmp_Gap2+Case_Thickness+0.5, BB_PJack_W+Cmp_Gap2, BB_PJack_Z+Cmp_Gap]);*/
+		//MICRO USB Port
+		translate([BB_USBD_X-Cmp_Gap-Case_Thickness+0.5, BB_USBD_Y-Cmp_Gap, 0.75]) 
+            cube([BB_USBD_L+Cmp_Gap2+Case_Thickness+0.5, BB_USBD_W+Cmp_Gap2, BB_USBD_Z+Cmp_Gap]);
+        //~~// GROVE SIDE //~~//
+        //DHT
+        translate([BB_USBH_X-Cmp_Gap+0.5, BB_USBH_Y-Cmp_Gap, BB_USBH_ZZ]) cube([BB_USBH_L+Cmp_Gap2+Case_Thickness+0.5, BB_USBH_W+Cmp_Gap2, BB_USBH_Z+Cmp_Gap]);
+		/*translate([BB_USBH_X-Cmp_Gap, BB_USBH_Y-Cmp_Gap, Case_PCB_Z+BB_Z]) cube([BB_USBH_L+Cmp_Gap2+Case_Thickness+0.5, BB_USBH_W+Cmp_Gap2, CutOut_Z+Cmp_Gap]);
+		/*translate([BB_USBH_X-Cmp_Gap, BB_USBH_Y-Cmp_Gap, Case_PCB_Z+BB_Z]) cube([BB_USBH_L+Cmp_Gap2+Case_Thickness+0.5, BB_USBH_W+Cmp_Gap2, CutOut_Z]);//BB_USBH_Z+Cmp_Gap]);*/
 		//SD Card
         /*
 		translate([BB_SD_X-Cmp_Gap, BB_SD_Y-Cmp_Gap, Case_PCB_Z-BB_SD_Z]) cube([BB_SD_L+Cmp_Gap2+Case_Thickness+0.5, BB_SD_W+Cmp_Gap2, BB_SD_Z+Cmp_Gap2]);

@@ -32,7 +32,7 @@
 // -L and W are Lenght(X) and Width(Y) to specify component size
 
 //Board Dimensions
-BB_L = 95.36;
+BB_L = 100.36;
 BB_W = 54.61;
 BB_Z = 1.65;
 BB_SmCurve_R = 6.35;
@@ -81,19 +81,20 @@ BB_PJack_Z = 10.75;
 BB_PJack_L = 14.15;
 BB_PJack_W = 9.00;
 
-//Ethernet jack
+//4 USB
 BB_Eth_X = -2.54;
-BB_Eth_Y = 21.717;
+BB_Eth_Y = 12;
 BB_Eth_Z = 13.33;
-BB_Eth_L = 21.00;
-BB_Eth_W = 16.10;
+BB_Eth_L = 10;
+BB_Eth_W = 30;
 
-//Usb Host Port
-BB_USBH_X = BB_L - 14.05;
-BB_USBH_Y = 10.287 - 0.5;
-BB_USBH_Z = 6.95;
-BB_USBH_L = 14.05;
-BB_USBH_W = 14.45 - 1.50;
+//DHT
+BB_USBH_X = BB_L - 12;
+BB_USBH_Y = 17.5 + 1;
+BB_USBH_Z = 8;
+BB_USBH_ZZ = 2.5;
+BB_USBH_L = 14;
+BB_USBH_W = 16;
 
 //USB Mini Device Port
 BB_USBD_X = -0.635;
