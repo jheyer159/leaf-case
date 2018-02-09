@@ -30,7 +30,7 @@
 // 2 - Base for STL Export
 // 3 - Lid for STL Export
 
-   Render_Options = 3;
+   Render_Options = 2;
 
 // LID OPTIONS
 // Set this to select various lid Options
@@ -97,20 +97,34 @@ module Base()
 		translate([BB_USBD_X-Cmp_Gap-Case_Thickness+0.5, BB_USBD_Y-Cmp_Gap, 0.75]) 
             cube([BB_USBD_L+Cmp_Gap2+Case_Thickness+0.5, BB_USBD_W+Cmp_Gap2, BB_USBD_Z+Cmp_Gap]);
         //~~// GROVE SIDE //~~//
-        //DHT
-        translate([BB_USBH_X-Cmp_Gap+0.5, BB_USBH_Y-Cmp_Gap, BB_USBH_ZZ]) cube([BB_USBH_L+Cmp_Gap2+Case_Thickness+0.5, BB_USBH_W+Cmp_Gap2, BB_USBH_Z+Cmp_Gap]);
+        //DHT -- OLD(Y AXIS SQUARE)
+        //translate([BB_USBH_X-Cmp_Gap+0.5, BB_USBH_Y-Cmp_Gap, BB_USBH_ZZ]) cube([BB_USBH_L+Cmp_Gap2+Case_Thickness+0.5, BB_USBH_W+Cmp_Gap2, BB_USBH_Z+Cmp_Gap]);
 		/*translate([BB_USBH_X-Cmp_Gap, BB_USBH_Y-Cmp_Gap, Case_PCB_Z+BB_Z]) cube([BB_USBH_L+Cmp_Gap2+Case_Thickness+0.5, BB_USBH_W+Cmp_Gap2, CutOut_Z+Cmp_Gap]);
 		/*translate([BB_USBH_X-Cmp_Gap, BB_USBH_Y-Cmp_Gap, Case_PCB_Z+BB_Z]) cube([BB_USBH_L+Cmp_Gap2+Case_Thickness+0.5, BB_USBH_W+Cmp_Gap2, CutOut_Z]);//BB_USBH_Z+Cmp_Gap]);*/
 		//SD Card
-        /*
-		translate([BB_SD_X-Cmp_Gap, BB_SD_Y-Cmp_Gap, Case_PCB_Z-BB_SD_Z]) cube([BB_SD_L+Cmp_Gap2+Case_Thickness+0.5, BB_SD_W+Cmp_Gap2, BB_SD_Z+Cmp_Gap2]);
-		//HDMI
-		translate([BB_HDMI_X-Cmp_Gap, BB_HDMI_Y-Cmp_Gap, Case_PCB_Z-BB_HDMI_Z]) cube([BB_HDMI_L+Cmp_Gap2+Case_Thickness+0.5, BB_HDMI_W+Cmp_Gap2, BB_HDMI_Z+Cmp_Gap2]);*/
+        
+		//translate([BB_SD_X-Cmp_Gap, BB_SD_Y-Cmp_Gap, Case_PCB_Z-BB_SD_Z]) cube([BB_SD_L+Cmp_Gap2+Case_Thickness+0.5, BB_SD_W+Cmp_Gap2, BB_SD_Z+Cmp_Gap2]);
+		//PH
+		translate([BB_PH_X-Cmp_Gap, BB_PH_Y-Cmp_Gap, Case_PCB_Z-BB_PH_Z]){
+            rotate([90,0,0])
+            cylinder(h=10, r=5.75, center=true);
+        }
+        
+        //DHT SLOTS
+        translate([BB_DHT_X-Cmp_Gap, BB_DHT_Y-Cmp_Gap, Case_PCB_Z-BB_DHT_Z-3]){
+           cube([BB_DHT_L+Cmp_Gap2+Case_Thickness+0.5, BB_DHT_W+Cmp_Gap2, BB_DHT_ZH+Cmp_Gap2]);
+        }
+        translate([BB_DHT_X-Cmp_Gap, BB_DHT_Y-Cmp_Gap, Case_PCB_Z-BB_DHT_Z]){
+           cube([BB_DHT_L+Cmp_Gap2+Case_Thickness+0.5, BB_DHT_W+Cmp_Gap2, BB_DHT_ZH+Cmp_Gap2]);
+        }
+        translate([BB_DHT_X-Cmp_Gap, BB_DHT_Y-Cmp_Gap, Case_PCB_Z-BB_DHT_Z+3]){
+           cube([BB_DHT_L+Cmp_Gap2+Case_Thickness+0.5, BB_DHT_W+Cmp_Gap2, BB_DHT_ZH+Cmp_Gap2]);
+        }
 	}
 		//Mounting pegs
 		translate([BB_Hole1X,BB_Hole1Y,0]) MountingPeg();
 		translate([BB_Hole2X,BB_Hole2Y,0]) MountingPeg();
-		translate([BB_Hole3X,BB_Hole3Y,0]) MountingPeg();
+		translate([BB_Hole3X,BB_Hole3Y,0]) MountingPegFlat();
 		translate([BB_Hole4X,BB_Hole4Y,0]) MountingPeg();
 
 		//Dev Station rails
@@ -166,6 +180,16 @@ module MountingPeg()
 		cylinder(h=Case_PCB_Z/2, d1=BB_Hole_OD*1.5, d2=BB_Hole_OD, $fn=25);
 		translate([0,0,Case_PCB_Z-0.1]) cylinder(h=BB_Z/2+0.1,d=BB_Hole_ID, $fn=25);
 		translate([0,0,Case_PCB_Z+BB_Z/2-0.1]) cylinder(h=BB_Z/2+0.1,d1=BB_Hole_ID, d2=BB_Hole_ID/2, $fn=25);
+	}
+}
+
+module MountingPegFlat()
+{
+	union() {
+		cylinder(h=Case_PCB_Z, d=BB_Hole_OD, $fn=25);
+		cylinder(h=Case_PCB_Z/2, d1=BB_Hole_OD*1.5, d2=BB_Hole_OD, $fn=25);
+		//translate([0,0,Case_PCB_Z-0.1]) cylinder(h=BB_Z/2+0.1,d=BB_Hole_ID, $fn=25);
+		//translate([0,0,Case_PCB_Z+BB_Z/2-0.1]) cylinder(h=BB_Z/2+0.1,d1=BB_Hole_ID, d2=BB_Hole_ID/2, $fn=25);
 	}
 }
 

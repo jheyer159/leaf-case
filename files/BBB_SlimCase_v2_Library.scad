@@ -33,7 +33,7 @@
 
 //Board Dimensions
 BB_L = 100.36;
-BB_W = 54.61;
+BB_W = 84.61;
 BB_Z = 1.65;
 BB_SmCurve_R = 6.35;
 BB_LgCurve_R = 12.70;
@@ -83,32 +83,32 @@ BB_PJack_W = 9.00;
 
 //4 USB
 BB_Eth_X = -2.54;
-BB_Eth_Y = 12;
+BB_Eth_Y = 7;
 BB_Eth_Z = 13.33;
 BB_Eth_L = 10;
-BB_Eth_W = 30;
+BB_Eth_W = 31;
 
 //DHT
-BB_USBH_X = BB_L - 12;
-BB_USBH_Y = 17.5 + 1;
-BB_USBH_Z = 8;
-BB_USBH_ZZ = 2.5;
-BB_USBH_L = 14;
-BB_USBH_W = 16;
+BB_DHT_X = BB_L - 75;
+BB_DHT_Y = 84.59 + 0.1;
+BB_DHT_Z = -0.5;
+BB_DHT_L = 8.50;
+BB_DHT_W = 6.55;
+BB_DHT_ZH = 1;
 
-//USB Mini Device Port
+//USB MINI POWER
 BB_USBD_X = -0.635;
-BB_USBD_Y = 40.005 + 0.60;
+BB_USBD_Y = 37.005 + 0.60;
 BB_USBD_Z = 4.00;
 BB_USBD_L = 6.91;
 BB_USBD_W = 7.747;
 
-//Micro HDMI port
-BB_HDMI_X = BB_L + 0.635 - 7.50;
-BB_HDMI_Y = 21.59 + 0.1;
-BB_HDMI_Z = 2.90;
-BB_HDMI_L = 7.50;
-BB_HDMI_W = 6.55;
+//PH
+BB_PH_X = BB_L + 0.635 - 27.50;
+BB_PH_Y = 84.59 + 0.1;
+BB_PH_Z = -2;
+BB_PH_L = 7.50;
+BB_PH_W = 6.55;
 
 //MicroSD Card Port (Slot only)
 BB_SD_X = BB_L - 14.90;
