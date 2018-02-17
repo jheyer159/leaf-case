@@ -96,6 +96,7 @@ module Base()
 		//MICRO USB Port
 		translate([BB_USBD_X-Cmp_Gap-Case_Thickness+0.5, BB_USBD_Y-Cmp_Gap, 0.75]) 
             cube([BB_USBD_L+Cmp_Gap2+Case_Thickness+0.5, BB_USBD_W+Cmp_Gap2, BB_USBD_Z+Cmp_Gap]);
+        
         //~~// GROVE SIDE //~~//
         //DHT -- OLD(Y AXIS SQUARE)
         //translate([BB_USBH_X-Cmp_Gap+0.5, BB_USBH_Y-Cmp_Gap, BB_USBH_ZZ]) cube([BB_USBH_L+Cmp_Gap2+Case_Thickness+0.5, BB_USBH_W+Cmp_Gap2, BB_USBH_Z+Cmp_Gap]);
@@ -105,12 +106,17 @@ module Base()
         
 		//translate([BB_SD_X-Cmp_Gap, BB_SD_Y-Cmp_Gap, Case_PCB_Z-BB_SD_Z]) cube([BB_SD_L+Cmp_Gap2+Case_Thickness+0.5, BB_SD_W+Cmp_Gap2, BB_SD_Z+Cmp_Gap2]);
 		//PH
-		translate([BB_PH_X-Cmp_Gap, BB_PH_Y-Cmp_Gap, Case_PCB_Z-BB_PH_Z]){
-            rotate([90,0,0])
+        
+                translate([BB_PH_X-Cmp_Gap, BB_PH_Y-Cmp_Gap, Case_PCB_Z-BB_PH_Z]){
+            rotate([90,90,90])
             cylinder(h=10, r=5.75, center=true);
         }
         
+        
+
+        
         //DHT SLOTS
+        
         translate([BB_DHT_X-Cmp_Gap, BB_DHT_Y-Cmp_Gap, Case_PCB_Z-BB_DHT_Z-3]){
            cube([BB_DHT_L+Cmp_Gap2+Case_Thickness+0.5, BB_DHT_W+Cmp_Gap2, BB_DHT_ZH+Cmp_Gap2]);
         }
@@ -121,6 +127,7 @@ module Base()
            cube([BB_DHT_L+Cmp_Gap2+Case_Thickness+0.5, BB_DHT_W+Cmp_Gap2, BB_DHT_ZH+Cmp_Gap2]);
         }
 	}
+    
 		//Mounting pegs
 		translate([BB_Hole1X,BB_Hole1Y,0]) MountingPeg();
 		translate([BB_Hole2X,BB_Hole2Y,0]) MountingPeg();
