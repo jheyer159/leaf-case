@@ -123,7 +123,7 @@ module Base()
 	}
 		//Mounting pegs
 		translate([BB_Hole1X,BB_Hole1Y,0]) MountingPeg();
-		translate([BB_Hole2X,BB_Hole2Y,0]) MountingPeg();
+		translate([BB_Hole2X,BB_Hole2Y,0]) MountingPegGrabber();
 		//translate([BB_Hole3X,BB_Hole3Y,0]) MountingPegFlat();
 		//translate([BB_Hole4X,BB_Hole4Y,0]) MountingPeg();
 
@@ -190,6 +190,17 @@ module MountingPegFlat()
 		cylinder(h=Case_PCB_Z/2, d1=BB_Hole_OD*1.5, d2=BB_Hole_OD, $fn=25);
 		//translate([0,0,Case_PCB_Z-0.1]) cylinder(h=BB_Z/2+0.1,d=BB_Hole_ID, $fn=25);
 		//translate([0,0,Case_PCB_Z+BB_Z/2-0.1]) cylinder(h=BB_Z/2+0.1,d1=BB_Hole_ID, d2=BB_Hole_ID/2, $fn=25);
+	}
+}
+
+module MountingPegGrabber()
+{
+	union() {
+		cylinder(h=Case_PCB_Z, d=BB_Hole_OD, $fn=25);
+		cylinder(h=Case_PCB_Z/2, d1=BB_Hole_OD*1.5, d2=BB_Hole_OD, $fn=25);
+		//translate([0,0,Case_PCB_Z]) cylinder(h=BB_Z/2+0.3,d=BB_Hole_ID, $fn=25);
+		translate([0,0,Case_PCB_Z+BB_Z/2]) cylinder(h=BB_Z/2+0.1,d1=BB_Hole_ID+1, d2=BB_Hole_ID/2, $fn=25);
+        translate([0,0,Case_PCB_Z+BB_Z/2]) rotate([0,180,0]) cylinder(h=BB_Z/2+0.1,d1=BB_Hole_ID+1, d2=BB_Hole_ID/2, $fn=25);
 	}
 }
 
