@@ -30,7 +30,7 @@
 // 2 - Base for STL Export
 // 3 - Lid for STL Export
 
-   Render_Options = 2;
+   Render_Options = 3;
 
 // LID OPTIONS
 // Set this to select various lid Options

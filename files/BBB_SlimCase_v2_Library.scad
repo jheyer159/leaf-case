@@ -82,11 +82,11 @@ BB_PJack_L = 14.15;
 BB_PJack_W = 9.00;
 
 //4 USB
-BB_Eth_X = -2.54;    //Default was -2.54
-BB_Eth_Y = 3;        //Default was 5
-BB_Eth_Z = 13.33;    // Default 13.33
-BB_Eth_L = 10;       // Default was 10 (Moves Opening Up or Down)
-BB_Eth_W = 39;       // Default was 31 (Moves Length Towards PowerPlugin Hole)
+BB_Eth_X = -2.54;
+BB_Eth_Y = 7;
+BB_Eth_Z = 13.33;
+BB_Eth_L = 10;
+BB_Eth_W = 31;
 
 //DHT
 BB_DHT_X = BB_L - 75;
@@ -97,16 +97,16 @@ BB_DHT_W = 6.55;
 BB_DHT_ZH = 1;
 
 //USB MINI POWER
-BB_USBD_X = -0.635;        //Default -0.635
-BB_USBD_Y = 41;            //Default 37
-BB_USBD_Z = 4.1;
-BB_USBD_L = 8;           //Def 6.91
-BB_USBD_W = 9;          //Def 7.747
+BB_USBD_X = -0.635;
+BB_USBD_Y = 37.005 + 0.60;
+BB_USBD_Z = 4.00;
+BB_USBD_L = 6.91;
+BB_USBD_W = 7.747;
 
 //PH
-BB_PH_X = BB_L + 0;  //27.50
-BB_PH_Y = 72;
-BB_PH_Z = -3.4;
+BB_PH_X = BB_L + 0.635 - 27.50;
+BB_PH_Y = 84.59 + 0.1;
+BB_PH_Z = -2;
 BB_PH_L = 7.50;
 BB_PH_W = 6.55;
 
